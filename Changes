@@ -1,3 +1,10 @@
+2015-06-11  k  <andk@cpan.org>
+
+	* release 2.15
+
+	* In the tests, always check for exists before checking for
+	definedness (Reini Urban)
+
 2014-12-16  k  <andk@cpan.org>
 
 	* release 2.14
