@@ -1,3 +1,9 @@
+2016-04-11  k  <andk@cpan.org>
+
+	* release 2.16
+
+	* docs only change: create a real link to perlref.pod (Slaven Rezić)
+
 2015-06-11  k  <andk@cpan.org>
 
 	* release 2.15
