@@ -65,10 +65,10 @@ DESCRIPTION
 
         Note that scalar symbol table entries are a special case. If a
         symbol table entry exists at all, presence of a scalar is currently
-        unknowable, due to a feature of Perl described in perlref "Making
-        References" point 7. For example, this package will mark a scalar
-        value $foo as present if any of @foo, %foo, &foo etc. have been
-        declared or used.
+        unknowable, due to a feature of Perl described in "Making
+        References" in perlref point 7. For example, this package will mark
+        a scalar value $foo as present if any of @foo, %foo, &foo etc. have
+        been declared or used.
 
     as_string
     as_HTML
