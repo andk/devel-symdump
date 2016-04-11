@@ -393,8 +393,8 @@ haven't yet got a defined value.
 
 Note that scalar symbol table entries are a special case.  If a symbol
 table entry exists at all, presence of a scalar is currently
-unknowable, due to a feature of Perl described in perlref "Making
-References" point 7.  For example, this package will mark a scalar
+unknowable, due to a feature of Perl described in L<perlref/Making
+References> point 7.  For example, this package will mark a scalar
 value C<$foo> as present if any of C<@foo>, C<%foo>, C<&foo> etc. have
 been declared or used.
 
