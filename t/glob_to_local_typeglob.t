@@ -46,7 +46,7 @@ sub _check_child {
 
 	my $code = shift;
 	my $pid = open(CHILD, "|-");
-	
+
 	unless ($pid) {
 		$code->();
 		exit 0;
