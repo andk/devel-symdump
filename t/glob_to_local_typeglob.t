@@ -1,8 +1,16 @@
 BEGIN {
     $|++;
-    unless (@ARGV && shift(@ARGV) eq "--doit") {
-        $|=1;
-        print "1..0 # SKIP test only run when called with --doit\n";
+    my $exit_message = "";
+    unless ($ENV{AUTHOR_TEST}) {
+        $exit_message = "test only run when envariable AUTHOR_TEST is set";
+    }
+    unless ($exit_message) {
+        unless (eval { require Compress::Zlib; 1 }) {
+            $exit_message = "Compress::Zlib not found";
+        }
+    }
+    if ($exit_message) {
+        print "1..0 # SKIP $exit_message\n";
         eval "require POSIX; 1" and POSIX::_exit(0);
         exit;
     }
@@ -15,8 +23,8 @@ use English;
 
 diag("OS == $^O");
 
-use_ok('Compress::Zlib');
-use_ok('Devel::Symdump');
+use Compress::Zlib;
+use Devel::Symdump;
 
 diag('$Devel::Symdump::VERSION == '.$Devel::Symdump::VERSION);
 diag('$Compress::Zlib::VERSION == '.$Compress::Zlib::VERSION);
