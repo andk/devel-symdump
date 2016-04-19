@@ -1,3 +1,11 @@
+2016-04-19  k  <andk@cpan.org>
+
+	* release 2.17
+
+	* address #113886: unlist Compress::Zlib as a prereq, it was and
+	still is only used by a test that won't run for normal user
+	installs (Thanks to Graham Knop for reporting)
+
 2016-04-11  k  <andk@cpan.org>
 
 	* release 2.16
