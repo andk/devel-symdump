@@ -63,9 +63,18 @@ if ($is_trial && $version !~ /_/) {
 }
 
 my $prereq_pm = {
-                 'Compress::Zlib' => 0, # only for t/glob_to_local_typeglob.t
                  'Test::More' => 0,
                 };
+my @interesting_modules =
+    (
+     'Compress::Zlib', # only for t/glob_to_local_typeglob.t
+    );
+for my $interesting_module (@interesting_modules) {
+    my $have = eval "require $interesting_module; 1;";
+    if ($have) {
+        $prereq_pm->{$interesting_module} ||= 0;
+    }
+}
 my @sign = (MM->can("signature_target") ? (SIGN => 1) : ());
 WriteMakefile(
 	      NAME => "Devel::Symdump",
