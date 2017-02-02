@@ -3,24 +3,22 @@ use strict;
 use vars qw( $VERSION );
 use ExtUtils::MakeMaker qw(:DEFAULT);
 
-eval { require File::Spec; };
-my $HAVE_FILE_SPEC = !$@;
-
 my $version_diff = 0; # we'll have to die if this becomes true
-my $version_from;
 my $is_trial = 0;
 my $version;
 {
   local $^W;
   $ExtUtils::MakeMaker::VERSION = eval $ExtUtils::MakeMaker::VERSION;
 }
-if ($HAVE_FILE_SPEC) {
-  $version_from = File::Spec->catfile(qw(lib Devel Symdump.pm));
-} else {
-  $version_from = q(lib/Devel/Symdump.pm);
+
+print "Require Devel::Symdump from the local tarball.\n";
+
+BEGIN {
+    local @INC = @INC;
+    unshift @INC, './lib';
+    require Devel::Symdump;
 }
-unshift @INC, "lib";
-require $version_from;
+
 $version = $Devel::Symdump::VERSION;
 if ($is_trial && $version !~ /_/) {
     $version .= "-TRIAL";
