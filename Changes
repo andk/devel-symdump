@@ -1,3 +1,10 @@
+2017-02-07  k  <andk@cpan.org>
+
+	* release 2.18
+
+	* Makefile.PL changes to support perls without "." in @INC (Todd
+	Rinaldo); no functional change
+
 2016-04-19  k  <andk@cpan.org>
 
 	* release 2.17
